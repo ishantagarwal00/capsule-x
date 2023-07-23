@@ -1,0 +1,15 @@
+.footer-container {
+  background-color: #f0f0f0;
+  padding: 16px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.heart-icon {
+  color: red;
+}
