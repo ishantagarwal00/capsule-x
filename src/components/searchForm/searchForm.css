@@ -6,54 +6,81 @@
   padding: 16px 32px;
   gap: 16px;
 }
+
 .searchform-header-wrapper {
   font-size: 24px;
   line-height: 36px;
   font-weight: 500;
   color: #000;
 }
+
 .searchform-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   gap: 32px;
-}
-.dropdown-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 32px;
-}
-.dropdown-wrapper select {
-  padding: 8px 16px;
-  border-radius: 4px;
-  font-size: 12px;
-  line-height: 24px;
-}
-.action-button-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 32px;
+  width: 100%;
 }
 
-.search-button {
+.dropdown-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .dropdown-container {
+    flex-direction: row;
+  }
+}
+
+.dropdown-wrapper {
+  flex: 1;
+}
+
+select {
+  padding: 8px 16px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  line-height: 26px;
+  color: #333;
+  background-color: #fff;
+}
+
+select option {
+  padding: 5px;
+  font-size: 14px;
+  line-height: 26px;
+}
+
+.action-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .action-button-container {
+    flex-direction: row;
+  }
+}
+
+.search-button,
+.clear-button {
   appearance: none;
-  background-color: #2ea44f;
   border: 1px solid rgba(27, 31, 35, 0.15);
   border-radius: 6px;
   box-shadow: rgba(27, 31, 35, 0.1) 0 1px 0;
   box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
   font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   font-size: 14px;
-  font-weight: 600;
   line-height: 20px;
   padding: 6px 16px;
   position: relative;
@@ -64,32 +91,26 @@
   touch-action: manipulation;
   vertical-align: middle;
   white-space: nowrap;
+  cursor: pointer;
+}
+
+.search-button {
+  background-color: #2ea44f;
+  color: #fff;
 }
 
 .clear-button {
-  appearance: none;
   background-color: #fafbfc;
-  border: 1px solid rgba(27, 31, 35, 0.15);
-  border-radius: 6px;
-  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
-    rgba(255, 255, 255, 0.25) 0 1px 0 inset;
-  box-sizing: border-box;
   color: #24292e;
-  cursor: pointer;
-  display: inline-block;
-  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-  list-style: none;
-  padding: 6px 16px;
-  position: relative;
-  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: middle;
-  white-space: nowrap;
-  word-wrap: break-word;
+}
+
+@media (min-width: 1024px) {
+  .searchform-container {
+    padding: 32px;
+  }
+
+  .searchform-header-wrapper {
+    font-size: 32px;
+    line-height: 48px;
+  }
 }

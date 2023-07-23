@@ -1,0 +1,46 @@
+.datagrid-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 32px;
+}
+
+.datagrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  width: 100%;
+}
+
+.datagrid-item {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.page-navigator {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.page-navigator button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.page-navigator button.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+@media (min-width: 768px) {
+  .datagrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
