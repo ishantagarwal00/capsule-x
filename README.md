@@ -1,12 +1,12 @@
-# Ishant-Agarwal-Frontend-Developer
+# Capsule-x
 
 ## Description
 
-This project is a landing page built using React to display information about Capsules. It consists of three main sections: a modern banner, a search form with three filters, and a data grid to display capsule details. The search form allows users to filter capsules by status, original launch date, and type. The data grid is paginated and displays ten items per page. Clicking on an item in the grid opens a popup with more details. The design is responsive and optimized for various screen sizes and browsers.
+This project is a landing page built using React.js to display information about Capsules launched by SpaceX. It consists of three main sections: a modern banner, a search form with three filters, and a data grid to display capsule details. The search form allows users to filter capsules by status, original launch date, and type. The data grid is paginated and displays ten items per page. Clicking on an item in the grid opens a popup with more details. The design is responsive and optimized for various screen sizes and browsers.
 
 ## Technologies Used
 
-- React
+- React.js
 - Redux
 - Redux Toolkit
 - Redux Saga
@@ -16,7 +16,7 @@ This project is a landing page built using React to display information about Ca
 - Modern banner layout showcasing UI skills.
 - Search form with three filters: status, original launch date, and type.
 - Fully functional search form with optimized search query for quick results.
-- Elegant data grid displaying capsule details with pagination.
+- An elegant data grid displays capsule details with pagination.
 - Clicking on an item in the grid opens a popup with item data.
 - Responsive design for all screen sizes and browsers.
 - Use of Semantic HTML and SEO best practices.
