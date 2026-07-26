@@ -5,6 +5,8 @@ const capsulesSlice = createSlice({
   initialState: {
     capsulesData: [],
     originalData: [],
+    loading: false,
+    error: null,
   },
   reducers: {
     setCapsules: (state, action) => {
@@ -13,11 +15,23 @@ const capsulesSlice = createSlice({
     setOriginalData: (state, action) => {
       state.originalData = action.payload;
     },
-    fetchCapsules: () => {},
+    fetchCapsules: (state) => {
+      state.loading = true;
+      state.error = null;
+    },
+    fetchCapsulesSuccess: (state) => {
+      state.loading = false;
+    },
+    fetchCapsulesFailure: (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
   },
 });
 
-export const { setCapsules, setOriginalData, fetchCapsules } =
-  capsulesSlice.actions;
+export const {
+  setCapsules, setOriginalData, fetchCapsules,
+  fetchCapsulesSuccess, fetchCapsulesFailure,
+} = capsulesSlice.actions;
 
 export default capsulesSlice.reducer;

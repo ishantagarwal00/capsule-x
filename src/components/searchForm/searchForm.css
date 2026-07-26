@@ -1,116 +1,122 @@
 .searchform-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 16px 32px;
-  gap: 16px;
+  padding: 40px 24px;
+  background: #0f0f2a;
+  border-bottom: 1px solid rgba(99, 102, 241, 0.1);
 }
 
 .searchform-header-wrapper {
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 24px;
-  line-height: 36px;
-  font-weight: 500;
-  color: #000;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin-bottom: 4px;
+}
+
+.searchform-desc {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0 0 24px;
 }
 
 .searchform-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
-  gap: 32px;
-  width: 100%;
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .dropdown-container {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
   gap: 16px;
-}
-
-@media (min-width: 768px) {
-  .dropdown-container {
-    flex-direction: row;
-  }
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .dropdown-wrapper {
   flex: 1;
+  min-width: 180px;
+  max-width: 260px;
+  text-align: left;
+}
+
+.dropdown-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: #818cf8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
 }
 
 select {
-  padding: 8px 16px;
   width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
-  line-height: 26px;
-  color: #333;
-  background-color: #fff;
+  padding: 10px 14px;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 8px;
+  font-size: 13px;
+  color: #e2e8f0;
+  background: rgba(99, 102, 241, 0.05);
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='%236366f1'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+select:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
 }
 
 select option {
-  padding: 5px;
-  font-size: 14px;
-  line-height: 26px;
+  background: #1a1a3e;
+  color: #e2e8f0;
 }
 
 .action-button-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
+  gap: 12px;
 }
 
-@media (min-width: 768px) {
-  .action-button-container {
-    flex-direction: row;
-  }
-}
-
-.search-button,
-.clear-button {
-  appearance: none;
-  border: 1px solid rgba(27, 31, 35, 0.15);
-  border-radius: 6px;
-  box-shadow: rgba(27, 31, 35, 0.1) 0 1px 0;
-  box-sizing: border-box;
-  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-  font-size: 14px;
-  line-height: 20px;
-  padding: 6px 16px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: middle;
-  white-space: nowrap;
+.search-button, .clear-button {
+  padding: 10px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 8px;
   cursor: pointer;
+  transition: all 0.2s;
+  border: none;
 }
 
 .search-button {
-  background-color: #2ea44f;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
   color: #fff;
 }
 
-.clear-button {
-  background-color: #fafbfc;
-  color: #24292e;
+.search-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
 }
 
-@media (min-width: 1024px) {
-  .searchform-container {
-    padding: 32px;
-  }
+.clear-button {
+  background: rgba(255, 255, 255, 0.05);
+  color: #94a3b8;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-  .searchform-header-wrapper {
-    font-size: 32px;
-    line-height: 48px;
-  }
+.clear-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+}
+
+@media (max-width: 768px) {
+  .searchform-container { padding: 28px 16px; }
+  .dropdown-container { flex-direction: column; align-items: stretch; }
+  .dropdown-wrapper { max-width: none; }
 }

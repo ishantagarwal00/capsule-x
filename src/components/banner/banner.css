@@ -1,87 +1,112 @@
 .banner-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+  padding: 80px 24px 60px;
+  background: linear-gradient(135deg, #0a0a1a 0%, #1a1040 50%, #0a1628 100%);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.15);
 }
 
-.heading-wrapper {
-  margin: 0 !important;
-  box-sizing: border-box;
-  font-size: 32px;
-  line-height: 44px;
-  color: #000;
-  padding: 16px 32px;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  border-bottom: 2px solid #ebedf1;
-  width: 100%;
-  text-align: left;
+.banner-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
 }
 
-.banner-content-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  padding: 16px 32px 0 32px;
-  border-bottom: 2px solid #ebedf1;
-}
-.content-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 32px;
-}
-
-@media (min-width: 768px) {
-  .banner-content-wrapper {
-    flex-direction: row;
-    justify-content: flex-start;
-  }
-  .content-section {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 32px;
-  }
-
-  .content-left-section {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .banner-icon-wrapper {
-    border-radius: 16px;
-    border: 8px solid #888888;
-  }
-
-  .banner-icon {
-    border-radius: 8px;
-  }
+.stars {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(1.5px 1.5px at 50% 10%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1px 1px at 70% 40%, rgba(255,255,255,0.3), transparent),
+    radial-gradient(1px 1px at 90% 80%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1.5px 1.5px at 15% 85%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(1px 1px at 45% 35%, rgba(255,255,255,0.3), transparent),
+    radial-gradient(1px 1px at 80% 15%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1.5px 1.5px at 25% 50%, rgba(255,255,255,0.3), transparent),
+    radial-gradient(1px 1px at 60% 75%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(1px 1px at 5% 45%, rgba(255,255,255,0.3), transparent),
+    radial-gradient(1.5px 1.5px at 75% 55%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(1px 1px at 40% 90%, rgba(255,255,255,0.3), transparent),
+    radial-gradient(1px 1px at 95% 30%, rgba(255,255,255,0.5), transparent);
+  animation: fadeIn 2s ease-out;
 }
 
-.tagline-wrapper {
-  font-size: 28px;
-  line-height: 40px;
-  font-weight: 800;
-  text-align: left;
-  margin-bottom: 16px;
+.banner-content {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  animation: fadeInUp 0.8s ease-out;
 }
 
-.sub-tag-wrapper {
-  color: #888888;
+.banner-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #818cf8;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 20px;
+  margin-bottom: 24px;
+}
+
+.banner-title {
+  font-size: 56px;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin: 0 0 16px;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.banner-title-accent {
+  background: linear-gradient(135deg, #818cf8, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.banner-subtitle {
   font-size: 16px;
-  line-height: 28px;
-  text-align: left;
+  line-height: 1.6;
+  color: #94a3b8;
+  margin: 0 auto 40px;
+  max-width: 560px;
 }
 
-.banner-icon-wrapper {
-  border-bottom: 0;
+.banner-stats {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
 }
 
-.banner-icon {
-  width: 100%;
-  height: 100%;
+.banner-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.banner-stat-number {
+  font-size: 14px;
+  font-weight: 600;
+  color: #6366f1;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.banner-stat-label {
+  font-size: 12px;
+  color: #64748b;
+}
+
+@media (max-width: 768px) {
+  .banner-container { padding: 60px 20px 40px; }
+  .banner-title { font-size: 36px; }
+  .banner-subtitle { font-size: 14px; }
+  .banner-stats { gap: 24px; }
 }

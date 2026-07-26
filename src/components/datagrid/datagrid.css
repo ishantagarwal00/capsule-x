@@ -1,46 +1,204 @@
+.datagrid-section {
+  padding: 32px 24px 48px;
+  flex: 1;
+}
+
+.datagrid-header {
+  max-width: 1200px;
+  margin: 0 auto 16px;
+  text-align: left;
+}
+
+.datagrid-count {
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 500;
+}
+
 .datagrid-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px 32px;
 }
 
 .datagrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
   width: 100%;
+  max-width: 1200px;
 }
 
 .datagrid-item {
-  background-color: #f0f0f0;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(99, 102, 241, 0.12);
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: left;
+  animation: fadeInUp 0.4s ease-out both;
+  backdrop-filter: blur(4px);
 }
 
+.datagrid-item:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.datagrid-item.skeleton {
+  pointer-events: none;
+  padding: 20px;
+}
+
+.skeleton-line {
+  height: 12px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, rgba(99, 102, 241, 0.06) 0%, rgba(99, 102, 241, 0.15) 50%, rgba(99, 102, 241, 0.06) 100%);
+  background-size: 200px 100%;
+  animation: shimmer 1.2s ease-in-out infinite;
+  margin-bottom: 12px;
+}
+
+.skeleton-line:last-child { margin-bottom: 0; }
+.w-60 { width: 60%; }
+.w-40 { width: 40%; }
+.w-80 { width: 80%; }
+.w-50 { width: 50%; }
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.card-serial {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #f1f5f9;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 10px;
+}
+
+.badge-active { background: rgba(34, 197, 94, 0.15); color: #4ade80; }
+.badge-retired { background: rgba(100, 116, 139, 0.15); color: #94a3b8; }
+.badge-unknown { background: rgba(251, 191, 36, 0.15); color: #fbbf24; }
+.badge-destroyed { background: rgba(239, 68, 68, 0.15); color: #f87171; }
+
+.card-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.card-label {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.card-value {
+  font-size: 13px;
+  color: #cbd5e1;
+  font-weight: 500;
+}
+
+/* Message states */
+.message-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.message-state h3 {
+  font-size: 20px;
+  color: #f1f5f9;
+  margin: 16px 0 8px;
+}
+
+.message-state p {
+  font-size: 14px;
+  color: #64748b;
+  margin: 0;
+  max-width: 400px;
+}
+
+.message-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.error-icon {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+}
+
+.empty-icon {
+  background: rgba(99, 102, 241, 0.1);
+  color: #818cf8;
+}
+
+/* Pagination */
 .page-navigator {
   display: flex;
   justify-content: center;
-  margin: 20px 0;
+  align-items: center;
+  gap: 6px;
+  margin: 32px 0 0;
+  flex-wrap: wrap;
 }
 
-.page-navigator button {
-  margin: 0 5px;
-  padding: 5px 10px;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.page-btn {
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 6px;
+  background: transparent;
+  color: #94a3b8;
   cursor: pointer;
+  transition: all 0.2s;
 }
 
-.page-navigator button.active {
-  background-color: #007bff;
-  color: #fff;
-  border-color: #007bff;
+.page-btn:hover:not(:disabled):not(.active) {
+  border-color: rgba(99, 102, 241, 0.4);
+  color: #e2e8f0;
 }
-@media (min-width: 768px) {
-  .datagrid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+
+.page-btn.active {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: #fff;
+  border-color: transparent;
+}
+
+.page-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .datagrid-section { padding: 24px 16px 32px; }
+  .datagrid { grid-template-columns: 1fr; }
 }

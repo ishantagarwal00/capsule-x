@@ -1,15 +1,35 @@
 .footer-container {
-  background-color: #f0f0f0;
-  padding: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid rgba(99, 102, 241, 0.1);
+  padding: 24px;
   text-align: center;
 }
 
 .footer-content {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 4px;
+}
+
+.footer-content p {
+  margin: 0;
+  font-size: 13px;
+  color: #64748b;
 }
 
 .heart-icon {
-  color: red;
+  color: #ef4444;
+}
+
+.footer-sub {
+  font-size: 12px;
+}
+
+.footer-sub a {
+  color: #818cf8;
+  text-decoration: none;
+}
+
+.footer-sub a:hover {
+  text-decoration: underline;
 }
