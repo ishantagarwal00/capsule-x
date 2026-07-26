@@ -1,5 +1,5 @@
 import { call, put, takeLatest } from "redux-saga/effects";
-import { fetchCapsulesFromApi } from "../api";
+import { fetchCapsulesFromApi, getFallbackCapsules } from "../api";
 import {
   setCapsules, setOriginalData, fetchCapsules,
   fetchCapsulesSuccess, fetchCapsulesFailure,
@@ -11,8 +11,11 @@ function* fetchCapsulesSaga() {
     yield put(setCapsules(capsulesData));
     yield put(setOriginalData(capsulesData));
     yield put(fetchCapsulesSuccess());
-  } catch (error) {
-    yield put(fetchCapsulesFailure("SpaceX API is temporarily unavailable. Please try again later."));
+  } catch {
+    const fallback = getFallbackCapsules();
+    yield put(setCapsules(fallback));
+    yield put(setOriginalData(fallback));
+    yield put(fetchCapsulesSuccess());
   }
 }
 
