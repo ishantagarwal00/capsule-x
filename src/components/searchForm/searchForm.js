@@ -14,7 +14,7 @@ const SearchForm = () => {
     const filteredCapsules = originalData.filter((capsule) => {
       return (
         (!statusFilter || capsule.status === statusFilter) &&
-        (!launchFilter || capsule.original_launch === launchFilter) &&
+        (!launchFilter || capsule.original_launch?.startsWith(launchFilter)) &&
         (!typeFilter || capsule.type === typeFilter)
       );
     });
@@ -22,7 +22,10 @@ const SearchForm = () => {
   };
 
   const statusOptions = [...new Set(originalData.map((c) => c.status))];
-  const launchOptions = [...new Set(originalData.map((c) => c.original_launch))];
+  const launchOptions = [...new Set(originalData.map((c) => {
+    const year = c.original_launch?.split("T")[0]?.split("-")[0];
+    return year || "Unknown";
+  }))].sort();
   const typeOptions = [...new Set(originalData.map((c) => c.type))];
 
   const handleClear = () => {

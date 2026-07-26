@@ -12,7 +12,7 @@ function* fetchCapsulesSaga() {
     yield put(setOriginalData(capsulesData));
     yield put(fetchCapsulesSuccess());
   } catch (error) {
-    yield put(fetchCapsulesFailure(error.message || "Failed to load capsules"));
+    yield put(fetchCapsulesFailure("SpaceX API is temporarily unavailable. Please try again later."));
   }
 }
 
