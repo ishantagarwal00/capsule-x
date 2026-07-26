@@ -2,7 +2,7 @@ import { call, put, takeLatest } from "redux-saga/effects";
 import { fetchCapsulesFromApi, getFallbackCapsules } from "../api";
 import {
   setCapsules, setOriginalData, fetchCapsules,
-  fetchCapsulesSuccess, fetchCapsulesFailure,
+  fetchCapsulesSuccess,
 } from "./capsulesSlice";
 
 function* fetchCapsulesSaga() {
