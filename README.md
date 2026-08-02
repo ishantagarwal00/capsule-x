@@ -1,51 +1,96 @@
 # Capsule-x
 
-## Description
+**Capsule-x** is a responsive landing page that lets users search and browse SpaceX capsule data. It combines a modern banner, a search form with three filters (status, original launch date, and type), and a paginated data grid with full capsule details in a popup.
 
-This project is a landing page built using React.js to display information about Capsules launched by SpaceX. It consists of three main sections: a modern banner, a search form with three filters, and a data grid to display capsule details. The search form allows users to filter capsules by status, original launch date, and type. The data grid is paginated and displays ten items per page. Clicking on an item in the grid opens a popup with more details. The design is responsive and optimized for various screen sizes and browsers.
+**Live demo:** [capsule-x-k5s1.vercel.app](https://capsule-x-k5s1.vercel.app/)
 
-## Technologies Used
-
-- React.js
-- Redux
-- Redux Toolkit
-- Redux Saga
+---
 
 ## Features
 
-- Modern banner layout showcasing UI skills.
-- Search form with three filters: status, original launch date, and type.
-- Fully functional search form with optimized search query for quick results.
-- An elegant data grid displays capsule details with pagination.
-- Clicking on an item in the grid opens a popup with item data.
-- Responsive design for all screen sizes and browsers.
-- Use of Semantic HTML and SEO best practices.
+- **Modern banner layout** showcasing UI skills.
+- **Search form with three filters**: status, original launch date, and type.
+- **Optimized search query** for quick results.
+- **Paginated data grid** displaying ten capsule details per page.
+- **Detail popup** — click any grid item to see full capsule information.
+- **Responsive design** for all screen sizes and browsers.
+- **Semantic HTML** and SEO best practices.
 
-## Installation
+---
 
-1. Clone the repository: `git clone <repository-url>`
-2. Navigate to the project directory: `cd project-name`
-3. Install dependencies: `npm install`
+## Architecture
 
-## Usage
+### Client
 
-1. Run the development server: `npm start`
-2. Access the application at `http://localhost:3000` in your web browser.
+- React.js with functional components.
+- Global state managed with Redux + Redux Toolkit.
+- Side effects and data fetching orchestrated with Redux Saga.
 
-## Contributing
+### Data Fetching
 
-If you would like to contribute to this project, please follow these steps:
+Capsule data is fetched from the public SpaceX API. Requests are triggered by Redux actions, handled by sagas in `src/store`, and the results are committed through the root reducer.
 
-1. Fork the repository.
-2. Create a new branch: `git checkout -b feat/your-feature`
-3. Make your changes and commit them: `git commit -m "Add your feature"`
-4. Push to the branch: `git push origin feat/your-feature`
-5. Create a pull request.
+### Project Structure
 
-## License
+```
+src/
+├── App.js
+├── App.css
+├── index.js
+├── index.css
+├── assets/
+├── components/
+│   ├── banner/
+│   ├── searchForm/
+│   ├── datagrid/
+│   ├── popup/
+│   └── footer/
+├── pages/
+│   └── landingPage/
+└── store/
+    ├── store.js
+    ├── rootReducer.js
+    ├── rootSaga.js
+    ├── api.js
+    └── capsules/
+```
 
-This project is licensed under the [MIT License](LICENSE).
+---
 
-## Contact
+## How to Run
 
-For any inquiries or questions, please contact Ishant Agarwal(mailto:ishantagarwal32@gmail.com).
+### Prerequisites
+
+- Node.js and npm
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/ishantagarwal00/capsule-x.git
+   cd capsule-x
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+### Usage
+
+- Start the development server:
+
+  ```bash
+  npm start
+  ```
+
+- Open `http://localhost:3000` in your browser.
+
+---
+
+## Notes
+
+- Data comes from the public SpaceX API — there is no backend or database of our own.
+- No authentication or user accounts yet.
